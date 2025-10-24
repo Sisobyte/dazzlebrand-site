@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TheDazzleBrand — Personal Shopper & Styling</title>
+  <meta name="description" content="DazzelBrand — Personal shopper, styling, wardrobe audits and curated shopping." />
+
+  <!-- Google Font: Mukta (user's preferred font stored in memory) -->
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+  <!-- Basic styling (replace or extend with your own CSS or Tailwind) -->
+  <style>
+    :root{
+      --primary:#161616; /* from user's design system */
+      --accent:#B7EA32;  /* user's accent */
+      --light:#ffffff;
+      --muted:#666;
+      --radius:12px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Mukta',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; color:var(--primary);background:#fff}
+    a{color:inherit;text-decoration:none}
+
+    /* Container */
+    .site-wrap{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),#a8d92a);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-weight:700}
+    nav ul{display:flex;gap:18px;align-items:center;list-style:none;margin:0;padding:0}
+    .cta{background:var(--accent);padding:10px 16px;border-radius:10px;font-weight:600}
+
+    /* Mobile nav */
+    .nav-toggle{display:none;border:0;background:none;font-size:22px}
+    @media (max-width:840px){nav ul{display:none} .nav-toggle{display:block}}
+
+    /* Hero */
+    .hero{display:flex;gap:32px;align-items:center;padding:40px 0}
+    .hero-left{flex:1}
+    .eyebrow{color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+    h1{font-size:36px;margin:12px 0;line-height:1.05}
+    p.lead{color:var(--muted);margin:16px 0;max-width:620px}
+    .hero-cta{display:flex;gap:12px;margin-top:16px}
+    .btn{padding:12px 18px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn-primary{background:var(--primary);color:var(--light)}
+    .btn-outline{background:transparent;border:2px solid var(--primary)}
+
+    .hero-right{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .hero-image{background:#eee;height:160px;border-radius:14px;overflow:hidden;display:flex;align-items:flex-end;padding:12px;color:#fff;font-weight:700}
+
+    /* Services */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:36px 0}
+    .card{padding:18px;border-radius:12px;background:#fbfbfb;border:1px solid #f0f0f0}
+    .card h3{margin:8px 0}
+    @media (max-width:840px){.hero{flex-direction:column}.services{grid-template-columns:1fr}}
+
+    /* Portfolio */
+    .portfolio{margin:28px 0}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+    @media (max-width:840px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:480px){.gallery{grid-template-columns:1fr}}
+
+    /* How it works */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
+    .step{background:#fff;border:1px solid #eee;padding:14px;border-radius:10px;text-align:center}
+    @media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+
+    /* Testimonials + Pricing */
+    .two-col{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin:28px 0}
+    .testimonial{background:linear-gradient(180deg, #fff, #fafafa);padding:18px;border-radius:12px}
+    .price-card{background:var(--primary);color:var(--light);padding:18px;border-radius:12px}
+    @media (max-width:900px){.two-col{grid-template-columns:1fr}}
+
+    /* Contact */
+    form{display:grid;gap:10px}
+    input,textarea,select{padding:12px;border-radius:8px;border:1px solid #ddd;font-family:inherit}
+    button[type=submit]{background:var(--accent);border:0;padding:12px;border-radius:10px;font-weight:700}
+
+    footer{margin-top:40px;padding:20px 0;color:var(--muted);text-align:center}
+
+    /* Utility */
+    .muted{color:var(--muted)}
+    .badge{display:inline-block;padding:6px 10px;background:#f6fff0;border-radius:999px;font-weight:700;color:var(--primary)}
+  
+     .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .whatsapp-float:hover {
+    background-color: #B7EA32;
+    transform: scale(1.1);
+  }
+
+  .whatsapp-float i {
+    margin-top: 2px;
+  }
+
+  #lightbox {opacity:0;transition:opacity 0.3s ease;}
+  #lightbox[style*="display: flex"] {opacity:1;}
+
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">DB</div>
+        <div>
+          <div style="font-weight:700">TheDazzleBrand</div>
+          <div style="font-size:12px;color:var(--muted)">Personal Shopper & Stylist</div>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-toggle" aria-label="open menu" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#contact" class="cta">Book a consult</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="eyebrow">Style that fits your life</div>
+        <h1>Personal shopping & styling — curated for your taste, budget and confidence</h1>
+        <p class="lead">DazzleBrand helps busy people rediscover their wardrobe and shop smarter. Virtual or in-person styling, wardrobe edits, and one-off event styling.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Book a Free 15-min Call</a>
+          <a href="#portfolio" class="btn btn-outline">See Portfolio</a>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+          <div class="badge">New: Virtual styling</div>
+          <div class="muted" style="font-size:13px">Packages start from ₦8,000</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-image" style="background-image:url(images/wardrobe2.jfif);background-size:cover">Wardrobe Refresh</div>
+        <div class="hero-image" style="background-image:url(images/shopper3.jfif);background-size:cover; background-position:center 50%; ">Personal Shopping</div>
+        <div class="hero-image" style="background-image:url(images/event1.jfif);background-size:cover">Event Styling</div>
+        <div class="hero-image" style="background-image:url(images/consult2.jfif);background-size:cover">Virtual Consult</div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>Services</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Wardrobe Edit</h3>
+          <p class="muted">Declutter, keep what flatters, build outfits from pieces you already own.</p>
+        </div>
+        <div class="card">
+          <h3>Personal Shopping</h3>
+          <p class="muted">I source pieces that match your style, budget and body — online or in-store.</p>
+        </div>
+        <div class="card">
+          <h3>Event Styling</h3>
+          <p class="muted">Complete looks for weddings, interviews, red carpets or photoshoots.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+      <h2>Portfolio — Recent Works</h2>
+      <div class="gallery">
+        <img src="images/po14.jfif" alt="Styled look 1">
+        <img src="images/po6.jfif" alt="Styled look 2">
+        <img src="images/po8.jfif" alt="Styled look 3">
+        <img src="images/po10.jfif" alt="Styled look 4">
+        <img src="images/po4.jfif" alt="Styled look 5">
+        <img src="images/po1.jfif" alt="Styled look 6">
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <div style="font-size:18px;font-weight:700">1. Book a Call</div>
+          <div class="muted">Tell us your goals, schedule & budget.</div>
+        </div>
+        <div class="step">
+          <div style="font-size:18px;font-weight:700">2. Style Quiz</div>
+          <div class="muted">Share measurements, photos and preferences.</div>
+        </div>
+        <div class="step">
+          <div style="font-size:18px;font-weight:700">3. Curated Picks</div>
+          <div class="muted">We send outfit options, links & styling notes.</div>
+        </div>
+        <div class="step">
+          <div style="font-size:18px;font-weight:700">4. Finalize</div>
+          <div class="muted">Approve, shop, or request tweaks.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS + PRICING -->
+    <section>
+      <div class="two-col">
+        <div>
+          <h2>What clients say</h2>
+          <div class="testimonial">
+            <p style="font-weight:700">"DazzleBrand changed the way I dress. I feel confident and save time every morning."</p>
+            <p class="muted">— Chioma A., Lagos</p>
+          </div>
+          <div style="height:12px"></div>
+          <div class="testimonial">
+            <p style="font-weight:700">"Exceptional eye for color and fit — the virtual styling package was seamless."</p>
+            <p class="muted">— Tomiwa O., Abuja</p>
+          </div>
+        </div>
+
+        <aside>
+          <h3>Pricing (starter)</h3>
+          <div class="price-card">
+            <div style="font-size:22px;font-weight:800">Wardrobe Refresh</div>
+            <div style="font-size:28px;margin:8px 0">₦8,000</div>
+            <p style="opacity:0.95">1.5 hour wardrobe edit + 10 suggested outfits</p>
+            <div style="height:12px"></div>
+            <a href="#contact" class="btn" style="display:inline-block;background:var(--light);color:var(--primary);padding:10px 14px;border-radius:8px">Book this</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Book a consultation</h2>
+      <form onsubmit="handleForm(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <input type="text" id="name" placeholder="Your full name" required>
+          <input type="email" id="email" placeholder="Email address" required>
+        </div>
+        <input type="text" id="city" placeholder="City (optional)">
+        <select id="service">
+          <option value="wardrobe">Wardrobe Edit</option>
+          <option value="shopping">Personal Shopping</option>
+          <option value="event">Event Styling</option>
+          <option value="virtual">Virtual Styling</option>
+        </select>
+        <textarea id="message" rows="4" placeholder="Tell us briefly what you need"></textarea>
+        <button type="submit">Request Booking</button>
+      </form>
+      <div style="margin-top:12px;color:var(--muted);font-size:13px">We will reply within 24 hours. For urgent requests, WhatsApp +234 800 000 0000</div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div>&copy; DazzleBrand — Personal Shopper & Stylist</div>
+        <div style="font-size:13px;color:var(--muted)">Follow: Instagram · TikTok · Facebook</div>
+      </div>
+    </footer>
+      <a href="https://wa.me/2348147048156" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+
+  </div>
+
+  <!-- Small JS: nav toggle + form handler -->
+  <script>
+    function handleForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if(!name || !email){alert('Please enter name and email');return}
+      // This demo just shows a friendly confirmation. Replace with backend post or email API.
+      alert('Thanks '+name+' — we received your request. Check '+email+' for confirmation.');
+      e.target.reset();
+    }
+
+    // Simple accessibility: toggle nav on mobile
+    document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{
+      if(window.innerWidth < 840) document.querySelector('nav ul').classList.remove('open');
+    }));
+
+    // small style for open nav
+    const style = document.createElement('style');
+    style.innerHTML = 'nav ul.open{display:flex;flex-direction:column;position:absolute;right:24px;top:64px;background:#fff;padding:12px;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.06)}';
+    document.head.appendChild(style);
+  </script>
+
+
+<!-- Portfolio Image Lightbox -->
+<div id="lightbox" style="display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
+  <img id="lightbox-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
+</div>
+
+<script>
+  // Select all portfolio images
+  const images = document.querySelectorAll('.gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;  // Show full image
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  // Close lightbox when clicked anywhere
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+</script>
+
+  
+</body>
+</html>
