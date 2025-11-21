@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://dazzlebrand.netlify.app/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Images -->
+  <url>
+    <loc>https://dazzlebrand.netlify.app/images/preview.webp</loc>
+    <image:image>
+      <image:loc>https://dazzlebrand.netlify.app/images/preview.webp</image:loc>
+      <image:caption>Preview image of DazzleBrand portfolio</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

@@ -1,0 +1,6 @@
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Link to your sitemap
+Sitemap: https://dazzlebrand.netlify.app/sitemap.xml
