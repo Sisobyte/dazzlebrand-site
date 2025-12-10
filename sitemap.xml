@@ -5,24 +5,4 @@
       <priority>1.0</priority>
       <changefreq>weekly</changefreq>
    </url>
-   <url>
-      <loc>https://thedazzlebrand.netlify.app/#services</loc>
-      <priority>0.8</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://thedazzlebrand.netlify.app/#portfolio</loc>
-      <priority>0.8</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://thedazzlebrand.netlify.app/#how</loc>
-      <priority>0.8</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://thedazzlebrand.netlify.app/#contact</loc>
-      <priority>0.8</priority>
-      <changefreq>monthly</changefreq>
-   </url>
 </urlset>
